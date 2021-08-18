@@ -108,6 +108,11 @@ if(paymentOptionSelected === 'paypal'){
 
 //////////////////////////////////////////////////////
 
+
+
+
+
+
 $("form").on('submit', function(event){
   
   let nameEntered = $('#name').val();
@@ -202,4 +207,33 @@ $("form").on('submit', function(event){
 
 
 })
+
+
+
+
+const checkBoxes = $('[type = checkbox]')
+
+for (let i = 0; i<checkBoxes.length; i++){
+
+$('[type = checkbox]').focus( function(focus){
+  
+  if(focus.target.value=== 'on'){
+    $(this).parent().addClass('focus')
+
+  }
+  
+  $('[type = checkbox]').blur(function(blur){
+
+    if(blur.target.value=== 'on'){
+      $(this).parent().removeClass('focus')
+  
+    }
+
+  })
+  
+  
+
+})};
+
+
 
