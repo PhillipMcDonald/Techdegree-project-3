@@ -140,7 +140,8 @@ $("form").on('submit', function(event){
   let ccEntered = $('#cc-num').val()
   let zipEntered = $('#zip').val();
   let cvvEntered = $('#cvv').val();
-
+  
+  
   let activitiesChecked=$("input:checked").prop('checked');
   
   const nameTest = /[\w\W]/.test(nameEntered);
@@ -148,6 +149,7 @@ $("form").on('submit', function(event){
   const ccTest = /^[0-9]{13,16}$/.test(ccEntered);
   const zipTest = /^[0-9]{5}$/.test(zipEntered);
   const cvvTest = /^[0-9]{3}$/.test(cvvEntered);
+
 
 
   if(nameTest=== true){
@@ -186,13 +188,13 @@ $("form").on('submit', function(event){
 
 
 
-  if(ccTest=== true){
+  if(ccTest=== true ){
 
     $("[for=cc-num]").addClass('valid');
     $("[for=cc-num]").removeClass("not-valid error-border");
     $('#cc-hint').hide();
 
-  } else if (ccTest !== true){
+  } else if (($('#payment option:selected').val()==='credit-card')&&ccTest !== true){
 
     
     $('#cc-hint').show();
@@ -209,7 +211,7 @@ $("form").on('submit', function(event){
     $('[for=zip]').removeClass("not-valid error-border");
     $('#zip-hint').hide();
     
-  }else if (zipTest !== true) {
+  }else if (($('#payment option:selected').val()==='credit-card')&&zipTest !== true) {
 
   
     $('#zip-hint').show();
@@ -219,7 +221,7 @@ $("form").on('submit', function(event){
 
 
 
-  if (cvvTest === true){
+  if (cvvTest === true ){
 
 
     $('[for=cvv]').addClass("valid");
@@ -227,7 +229,7 @@ $("form").on('submit', function(event){
     $('#cvv-hint').hide();
     
     
-  }else if (cvvTest !== true){
+  }else if (($('#payment option:selected').val()==='credit-card')&&cvvTest !== true){
 
     
     $('#cvv-hint').show();
